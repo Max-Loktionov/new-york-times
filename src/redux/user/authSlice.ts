@@ -1,16 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import { userApi } from "./userApi";
+import { IUserResponse, userApi } from "./userApi";
 import type { RootState } from "redux/store";
-import type { PayloadAction } from '@reduxjs/toolkit'
+import type { PayloadAction } from "@reduxjs/toolkit";
 
-interface IUser{
+export interface IUser {
   name: string | null;
   email: string | null;
   password: string | null;
 }
-    
+
 interface IState {
   user: IUser;
   token: string | null;
@@ -30,26 +30,36 @@ const initialState = {
 export const authSlice = createSlice({
   name: "auth",
   initialState,
-
-  extraReducers: ((builder: ActionReducerMapBuilder<IState>)) => {
+  reducers: {},
+  extraReducers: (builder) => {
     builder
       .addMatcher(
         userApi.endpoints.logInUser.matchFulfilled,
-        (state, { payload: { user, token } }:PayloadAction<{user: IUser; token: string}> ) => {
+        (
+          state: IState,
+          {
+            payload: { user, token },
+          }: PayloadAction<{ user: IUser; token: string }>
+        ) => {
           state.user = user;
-          state.token =token;
+          state.token = token;
           state.isLoggedIn = true;
         }
       )
 
-      .addMatcher(userApi.endpoints.logOutUser.matchFulfilled, (state, _) => {
-        state.token = null;
-        state.user = null;
-        state.isLoggedIn = false;
-      })
+      .addMatcher(
+        userApi.endpoints.logOutUser.matchFulfilled,
+        (state: IState, { payload }: PayloadAction<IUserResponse>) => {
+          state.token = null;
+          state.user.name = null;
+          state.user.email = null;
+          state.user.password = null;
+          state.isLoggedIn = false;
+        }
+      )
       .addMatcher(
         userApi.endpoints.getUser.matchFulfilled,
-        (state, { payload }) => {
+        (state: IState, { payload }: PayloadAction<IUser>) => {
           state.user = payload;
           state.isLoggedIn = true;
         }
