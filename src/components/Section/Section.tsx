@@ -1,6 +1,6 @@
 interface ISection {
   title?: string;
-  children: JSX.Element;
+  children: React.ReactNode;
 }
 // children?: React.ReactNode;
 // children?.: JSX.Element;

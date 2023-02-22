@@ -28,7 +28,7 @@ export const newsApi = createApi({
   refetchOnMountOrArgChange: true,
 
   endpoints: (builder) => ({
-    getNews: builder.query<INews[], void>({
+    getNews: builder.query<INews[] | undefined, void>({
       query: () => `/posts`,
       providesTags: ["News"],
     }),

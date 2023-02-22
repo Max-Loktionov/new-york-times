@@ -13,18 +13,18 @@ import { INews } from "redux/newsAPI";
 const NewsPage = () => {
   const ITEMS_PER_PAGE = 10; // Number of items to show per page
 
-  const { data, isLoading, isError } = useGetNewsQuery(); // fetch data from mockAPI posts
+  const { data: posts, isLoading, isError } = useGetNewsQuery(); // fetch data from mockAPI posts
 
   // const value = useSelector(getFiltred);
   const [itemsPerPage] = useState(ITEMS_PER_PAGE);
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsToShow, setItemsToShow] = useState([]);
-  const [allItems, setAllItems] = useState([]);
+  const [itemsToShow, setItemsToShow] = useState<INews[]>([]);
+  const [allItems, setAllItems] = useState<INews[] | undefined>([]);
   // const [isDisable, setDisable] = useState(false);//todo: del
 
   useEffect(() => {
-    setAllItems(data);
-  }, [data]);
+    setAllItems(posts);
+  }, [posts]);
   // console.log('allItems26:', allItems);
   // slice the items array to show only the items for the current page
   const startIndex = (currentPage - 1) * itemsPerPage;
@@ -37,15 +37,15 @@ const NewsPage = () => {
     const items = allItems?.slice(startIndex, endIndex);
     // console.log('items:', allItems);
     if (!items) return;
-    setItemsToShow((prevState) => [...prevState, ...items]);
+    setItemsToShow((prevItems) => [...prevItems, ...items]);
   }, [allItems, itemsPerPage, currentPage, startIndex, endIndex]);
 
   const loadMoreBtn = () => {
     setCurrentPage(currentPage + 1);
   };
-  const deleteOnePostById = (postId): string => {
-    setItemsToShow((prevState) =>
-      prevState.filter((post): INews => post.id !== postId)
+  const deleteOnePostById = (postId: string) => {
+    setItemsToShow((prevItems) =>
+      prevItems.filter((post: INews) => post.id !== postId)
     );
   };
   // const getFiltredNews = () => {
@@ -61,7 +61,7 @@ const NewsPage = () => {
 
   return (
     <>
-      <Section title="Today "></Section>
+      {/* <Section title="Today "></Section> */}
       <Section title="Today News">
         {/* <Filter /> */}
         {isLoading && (
