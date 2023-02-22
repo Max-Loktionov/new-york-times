@@ -4,7 +4,7 @@ import type { RootState } from "redux/store";
 const { REACT_APP_BASE_URL1 } = process.env;
 const BASE_URL = `${REACT_APP_BASE_URL1}`;
 
-interface INews {
+export interface INews {
   title: string;
   body: string;
   id: string;

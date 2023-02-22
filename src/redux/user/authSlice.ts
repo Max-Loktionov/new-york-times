@@ -79,5 +79,5 @@ export const persistedReducer = persistReducer(
 );
 
 // export const { logInUser, logOutUser, getUser } = authSlice.actions;
-export const selectCurrentUser = (state: RootState) => state.auth.user;
+export const selectCurrentUser = (state: RootState) => state?.auth?.user;
 export default authSlice.reducer;

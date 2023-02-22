@@ -1,40 +1,56 @@
-import { useEffect, useState } from "react";
 import { lazy, Suspense } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import PropagateLoader from "react-spinners/PropagateLoader";
-import { JobIFace } from "./helpers/jobIFace";
-import { fetchJobList } from "./services/API";
-import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import { Oval } from "react-loader-spinner";
+import { Container } from "./App.styled";
+import { Layout } from "./Layout/Layout";
+import PrivateRoute from "./PrivateRoute";
+import PublicRoute from "./PublicRoute";
 
-const JobBoard = lazy(() => import("./pages/JobBoard"));
-const JobDetailed = lazy(() => import("./pages/JobDetailed"));
-const NotFoundPage = lazy(() => import("./pages/NotFound"));
+const HomePage = lazy(() => import("views/HomePage"));
+const LogInPage = lazy(() => import("views/LogInPage"));
 
-function App() {
-  const [data, setData] = useState<JobIFace[]>([]);
+const NewsPage = lazy(() => import("views/NewsPage"));
+const ProfilePage = lazy(() => import("views/ProfilePage"));
+const NotFoundPage = lazy(() => import("views/NotFound"));
 
-  async function getJobList() {
-    const response = await fetchJobList();
-    setData(response);
-  }
-
-  useEffect(() => {
-    getJobList();
-  }, []);
-
+export default function App() {
   return (
-    <BrowserRouter basename="/test-allab/">
-      <div className="App">
-        <Suspense fallback={<PropagateLoader color="#41d61f" />}>
-          <Routes>
-            <Route path="/" element={<JobBoard items={data} />} />
-            <Route path="/:jobId" element={<JobDetailed data={data} />} />
+    <Container>
+      <Suspense fallback={<Oval />}>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            {/* <Route
+              path="contacts"
+              element={
+                <PrivateRoute navTo="/login">
+                  <ContactsPage />
+                </PrivateRoute>
+              }
+            /> */}
+            <Route
+              path="profile"
+              element={
+                <PrivateRoute navTo="/login">
+                  <ProfilePage />
+                </PrivateRoute>
+              }
+            />
+            <Route index element={<HomePage />} />
+            <Route path="news" element={<NewsPage />} />
+
+            <Route
+              path="login"
+              element={
+                <PublicRoute restricted navTo="/profile">
+                  <LogInPage />
+                </PublicRoute>
+              }
+            />
+
             <Route path="*" element={<NotFoundPage />} />
-          </Routes>
-        </Suspense>
-      </div>
-    </BrowserRouter>
+          </Route>
+        </Routes>
+      </Suspense>
+    </Container>
   );
 }
-
-export default App;
