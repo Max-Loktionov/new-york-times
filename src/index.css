@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, "Proxima Nova", BlinkMacSystemFont, Roboto,
+    "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.chevronIcon {
+  @apply h-5 w-5  border-grey-pagN invisible stroke-2 xl:visible;
+}
+.stars {
+  @apply w-6 h-6 mr-1 stroke-grey-sec text-grey-sec;
+}
+.page-item {
+  @apply flex justify-center w-6 h-6 text-grey-pagN first:mr-14 first:border-r-2 first:w-auto last:w-auto last:ml-14 last:border-l-2 hover:bg-gray-50 xl:w-8 xl:h-8;
+}
+.page-link {
+  @apply relative inline-flex items-center text-base font-bold  xl:text-xl;
+}
+.active {
+  @apply relative  border-b-2 border-grey-pag text-grey-pag;
+}
+.pagination {
+  @apply flex justify-center bg-grey-pagBoard mt-6 p-2 rounded-lg shadow-3xl ml-auto mr-auto   xl:w-[515px] xl:shadow-3xlDesk xl:bg-white;
+}
+.section-title {
+  @apply pb-4 mb-4 text-lg text-start font-bold text-grey-dark border-b border-grey-dark border-opacity-[0.13];
+}
+.section-tab {
+  @apply border text-base font-bold leading-4  py-2 px-3 rounded-lg;
+}
+.descr-parag {
+  @apply mb-10 xl:font-robot;
+}
+.button {
+  @apply mb-16 bg-[#384564] text-white  text-xs leading-4 font-semibold py-4 px-8 rounded-lg xl:block;
+}
