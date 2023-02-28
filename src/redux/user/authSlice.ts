@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import { IUserResponse, userApi } from "./userApi";
+import { userApi } from "./userApi";
 import type { RootState } from "redux/store";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
@@ -49,7 +49,7 @@ export const authSlice = createSlice({
 
       .addMatcher(
         userApi.endpoints.logOutUser.matchFulfilled,
-        (state: IState, { payload }: PayloadAction<IUserResponse>) => {
+        (state: IState) => {
           state.token = null;
           state.user.name = null;
           state.user.email = null;

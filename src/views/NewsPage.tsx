@@ -7,13 +7,16 @@ import Section from "components/Section";
 import { useGetNewsQuery } from "redux/newsAPI";
 import NewsList from "components/NewsList";
 import { INews } from "redux/newsAPI";
-// import Filter from "components/Filter";
-// import { getFiltred } from "redux/filterSlice";
+
+// export interface ILength {
+//   length: number;
+// }
+// <INews extends ILength>
 
 const NewsPage = () => {
   const ITEMS_PER_PAGE = 10; // Number of items to show per page
 
-  const { data: posts, isLoading, isError } = useGetNewsQuery(); // fetch data from mockAPI posts
+  const { data: posts, isLoading } = useGetNewsQuery(); // fetch data from mockAPI posts
 
   // const value = useSelector(getFiltred);
   const [itemsPerPage] = useState(ITEMS_PER_PAGE);
@@ -48,22 +51,25 @@ const NewsPage = () => {
       prevItems.filter((post: INews) => post.id !== postId)
     );
   };
-  // const getFiltredNews = () => {
-  //   if (value === '') {
-  //     return data;
-  //   } else {
-  //     const normalizedFilter = value.toLowerCase().trim();
-  //     return data.filter(post =>
-  //       post.title.toLowerCase().includes(normalizedFilter)
-  //     );
-  //   }
-  // };
+
+  var today = new Date();
+  // var weekday = today.getDay();
+  type Options = { weekday: "long" | "short" | "narrow" };
+
+  let options: Options = { weekday: "long" };
+  const dayoftheweek = new Intl.DateTimeFormat("en-US", options).format(today);
+  if (!allItems) {
+    return (
+      <Section title="Today News">
+        <div />
+      </Section>
+    );
+  }
 
   return (
     <>
-      {/* <Section title="Today "></Section> */}
+      <Section title="Today ">News of the {dayoftheweek} </Section>
       <Section title="Today News">
-        {/* <Filter /> */}
         {isLoading && (
           <Oval
             ariaLabel="loading-indicator"
@@ -73,11 +79,13 @@ const NewsPage = () => {
             secondaryColor="yellow"
           />
         )}
-        {allItems?.length > 0 && (
-          <NewsList posts={itemsToShow} onDelete={deleteOnePostById} />
-        )}
-        {allItems?.length > ITEMS_PER_PAGE && (
-          <button onClick={loadMoreBtn} disabled={endIndex >= allItems?.length}>
+        <NewsList posts={itemsToShow} onDelete={deleteOnePostById} />
+
+        {allItems.length > ITEMS_PER_PAGE && (
+          <button
+            onClick={loadMoreBtn}
+            disabled={Boolean(endIndex >= allItems?.length)}
+          >
             Show more
           </button>
         )}

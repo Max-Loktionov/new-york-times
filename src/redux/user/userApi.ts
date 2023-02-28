@@ -1,4 +1,9 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { SerializedError } from "@reduxjs/toolkit";
+import {
+  createApi,
+  fetchBaseQuery,
+  FetchBaseQueryError,
+} from "@reduxjs/toolkit/query/react";
 import type { RootState } from "redux/store";
 import { IUser } from "./authSlice";
 
@@ -7,6 +12,7 @@ const BASE_URL = `${process.env.REACT_APP_API_URL}/users`;
 export interface IUserResponse {
   user: IUser;
   token: string;
+  error: FetchBaseQueryError | SerializedError;
 }
 
 export interface IUserRequest {

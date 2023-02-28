@@ -1,0 +1,15 @@
+{
+    "home": {
+        "head": "New York Times",
+        "title": "Welcome home",
+        "description": {
+            "part1": "Remember: time waits for no one. What was yesterday is now history. ",
+            "part2": "What tomorrow brings is yet to be known. Today is a gift."
+        }
+    },
+    "navigation": {
+        "home": "Home",
+        "news": "News",
+        "profile": "Profile"
+    }
+}

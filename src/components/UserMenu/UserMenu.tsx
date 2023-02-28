@@ -8,14 +8,14 @@ import { Box, Ava, Name } from "./UserMenu.styled";
 
 export default function UserMenu() {
   const [logOutUser] = useLogOutUserMutation();
-  const userName = useSelector(selectCurrentUser);
+  const { name } = useSelector(selectCurrentUser);
   const avatar = defaultAva;
 
   return (
     <Box>
       <Ava src={avatar} alt="" width="32" />
       <span>
-        Welcome, <Name> {userName}</Name>
+        Welcome, <Name> {name}</Name>
       </span>
       <button type="button" onClick={logOutUser}>
         Log Out
