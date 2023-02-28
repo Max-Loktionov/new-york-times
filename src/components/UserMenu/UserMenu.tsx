@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "redux/user/authSlice";
+import { useTranslation } from "react-i18next";
 
 import { useLogOutUserMutation } from "redux/user/userApi";
 import defaultAva from "img/ava.png";
@@ -10,15 +11,15 @@ export default function UserMenu() {
   const [logOutUser] = useLogOutUserMutation();
   const { name } = useSelector(selectCurrentUser);
   const avatar = defaultAva;
-
+  const { t } = useTranslation();
   return (
     <Box>
       <Ava src={avatar} alt="" width="32" />
       <span>
-        Welcome, <Name> {name}</Name>
+        {t("login.greet")} , <Name> {name}</Name>
       </span>
       <button type="button" onClick={logOutUser}>
-        Log Out
+        {t("login.exit")}
       </button>
     </Box>
   );

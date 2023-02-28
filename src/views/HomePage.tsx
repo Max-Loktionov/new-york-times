@@ -1,19 +1,14 @@
 import { useTranslation } from "react-i18next";
+import { Oval } from "react-loader-spinner";
 
 export default function Home() {
-  const { t, i18n, ready } = useTranslation();
-
-  const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
-  };
+  const { t, ready } = useTranslation();
 
   if (ready) {
     return (
       <div>
         <h1>{t("home.head")}</h1>
         <p>{t("home.title")}</p>
-        <button onClick={() => changeLanguage("ua")}>ua</button>
-        <button onClick={() => changeLanguage("en")}>en</button>
         <p>
           {t("home.description.part1")}
           {t("home.description.part2")}
@@ -21,5 +16,9 @@ export default function Home() {
       </div>
     );
   }
-  return <span>Loading...</span>;
+  return (
+    <div>
+      <Oval />
+    </div>
+  );
 }

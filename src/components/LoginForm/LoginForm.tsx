@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Notify } from "notiflix/build/notiflix-notify-aio";
 import { useLogInUserMutation } from "redux/user/userApi";
+import { useTranslation } from "react-i18next";
 
 import {
   Form,
@@ -24,6 +25,7 @@ export interface ILogin {
 }
 
 export default function LoginForm() {
+  const { t } = useTranslation();
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(true);
   const onMouseUp = () => setShow(false);
@@ -84,7 +86,7 @@ export default function LoginForm() {
           onChange={handleChange}
           type="text"
           name="username"
-          placeholder="name"
+          placeholder={t("login.name")}
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           autoComplete="off"
@@ -99,7 +101,7 @@ export default function LoginForm() {
             //   setPassword(e.target.value)
             // }
             onChange={handleChange}
-            placeholder="password"
+            placeholder={t("login.password")}
             autoComplete="off"
             required
           />
@@ -113,7 +115,7 @@ export default function LoginForm() {
             <img src={show ? view : hidden} alt="button isHidden password" />
           </ButtonEye>
         </InputWrapper>
-        <Button type="submit">Log in</Button>
+        <Button type="submit">{t("login.enter")}</Button>
       </Form>
     </div>
   );

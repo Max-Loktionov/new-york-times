@@ -11,5 +11,18 @@
         "home": "Home",
         "news": "News",
         "profile": "Profile"
+    },
+    "news": {
+        "title": "Today News",
+        "more": "Show more",
+        "date": "News of the {{date,DATE_HUGE}}",
+        "del": "Delete"
+    },
+    "login": {
+        "name": "name",
+        "password": "password",
+        "enter": "Log in",
+        "exit": "Log out",
+        "greet": "Welcome"
     }
 }

@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import NewsItem from "components/NewsItem";
 import { INews } from "redux/newsAPI";
 
@@ -7,6 +8,7 @@ interface INewsProps {
 }
 
 const NewsList = ({ posts, onDelete }: INewsProps) => {
+  const { t } = useTranslation();
   return (
     <>
       News
@@ -20,7 +22,7 @@ const NewsList = ({ posts, onDelete }: INewsProps) => {
               body={post.body}
             />
             <button type="button" onClick={() => onDelete(post.id)}>
-              Delete
+              {t("news.del")}
             </button>
           </li>
         ))}
