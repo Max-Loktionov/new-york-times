@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 
 import { useLogOutUserMutation } from "redux/user/userApi";
 import defaultAva from "img/ava.png";
-
+import { Button } from "components/LoginForm/LoginForm.styled";
 import { Box, Ava, Name } from "./UserMenu.styled";
 
 export default function UserMenu() {
@@ -15,12 +15,12 @@ export default function UserMenu() {
   return (
     <Box>
       <Ava src={avatar} alt="" width="32" />
-      <span>
+      <Box>
         {t("login.greet")} , <Name> {name}</Name>
-      </span>
-      <button type="button" onClick={logOutUser}>
+      </Box>
+      <Button type="button" onClick={logOutUser}>
         {t("login.exit")}
-      </button>
+      </Button>
     </Box>
   );
 }

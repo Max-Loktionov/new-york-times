@@ -4,7 +4,9 @@
   "homepage": "https://max-loktionov.github.io/new-york-times/",
   "private": true,
   "dependencies": {
-    "@heroicons/react": "^2.0.13",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/material": "^5.11.11",
     "@reduxjs/toolkit": "^1.9.3",
     "@types/luxon": "^3.2.0",
     "@types/node": "^16.18.3",
@@ -12,7 +14,6 @@
     "@types/react-dom": "^18.0.8",
     "i18next": "^22.4.10",
     "i18next-browser-languagedetector": "^7.0.1",
-    "i18next-http-backend": "^2.1.1",
     "luxon": "^3.2.1",
     "normalize.css": "^8.0.1",
     "notiflix": "^3.2.5",

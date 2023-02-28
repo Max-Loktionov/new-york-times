@@ -11,7 +11,6 @@ const NewsList = ({ posts, onDelete }: INewsProps) => {
   const { t } = useTranslation();
   return (
     <>
-      News
       {posts &&
         posts.map((post) => (
           <li key={post.id}>

@@ -1,5 +1,4 @@
 import { useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
 import type { RootState } from "redux/store";
 import { useTranslation } from "react-i18next";
 
@@ -11,11 +10,9 @@ const Navigation = () => {
 
   return (
     <nav>
-      <NAVLink to="/" style={{ margin: "20px" }}>
-        {t("navigation.home")}
-      </NAVLink>
-      <NavLink to="/news">{t("navigation.news")}</NavLink>
-      {isLoggedIn && <NavLink to="/profile">{t("navigation.profile")}</NavLink>}
+      <NAVLink to="/">{t("navigation.home")}</NAVLink>
+      <NAVLink to="/news">{t("navigation.news")}</NAVLink>
+      {isLoggedIn && <NAVLink to="/profile">{t("navigation.profile")}</NAVLink>}
     </nav>
   );
 };

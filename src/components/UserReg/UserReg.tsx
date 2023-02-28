@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { NAVLink } from "./UserReg.styled";
+import { NAVLink } from "../UserMenu/UserMenu.styled";
 
 export default function AuthNav() {
   const { t } = useTranslation();

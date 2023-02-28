@@ -52,7 +52,7 @@ const NewsPage = () => {
 
   return (
     <>
-      <Section title="Today ">{t("news.date", { date: new Date() })}</Section>
+      <Section>{t("news.date", { date: new Date() })}</Section>
       <Section>
         {isLoading && (
           <Oval
