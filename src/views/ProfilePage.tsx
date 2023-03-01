@@ -45,17 +45,17 @@ const ProfilePage = () => {
             <Grid item sx={{ flexGrow: 1, my: 4, p: 2 }}>
               <Grid container direction="column" spacing={2}>
                 <Grid item xs={6} md={8}>
-                  <Typography variant="subtitle1">
+                  <Typography variant="h5">
                     {t("profile.name")}: admin
                   </Typography>
                 </Grid>
                 <Grid item xs={6} md={4}>
-                  <Typography variant="subtitle1">
+                  <Typography variant="h5">
                     {t("profile.email")}: example@test.com
                   </Typography>
                 </Grid>
                 <Grid item xs={6} md={4}>
-                  <Typography variant="subtitle1">
+                  <Typography variant="h5">
                     {t("profile.birthday")} : 01.06.1995
                   </Typography>
                 </Grid>

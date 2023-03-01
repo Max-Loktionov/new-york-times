@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Notify } from "notiflix/build/notiflix-notify-aio";
-// import { Oval } from "react-loader-spinner";
 import { useLogInUserMutation } from "redux/user/userApi";
 import { useTranslation } from "react-i18next";
 import { ILogin } from "helpers/interfaces";
@@ -13,7 +12,7 @@ import {
 } from "./LoginForm.styled.js";
 import hidden from "img/eye-off.svg";
 import view from "img/eye.svg";
-import { LinearProgress } from "@mui/material";
+// import { LinearProgress } from "@mui/material";
 
 interface FormElements extends HTMLFormControlsCollection {
   inputName: HTMLInputElement;
@@ -34,7 +33,7 @@ export default function LoginForm() {
     username: "",
     password: "",
   });
-  const [logInUser, { isLoading }] = useLogInUserMutation();
+  const [logInUser] = useLogInUserMutation();
 
   const handleSubmit = async (e: React.FormEvent<IFormElement>) => {
     e.preventDefault();
@@ -66,12 +65,12 @@ export default function LoginForm() {
 
   return (
     <div>
-      {isLoading ? (
+      {/* {isLoading ? (
         <>
           <LinearProgress color="success" />
           <LinearProgress />
         </>
-      ) : null}
+      ) : null} */}
       <Form onSubmit={handleSubmit}>
         <Input
           value={formState.username}
