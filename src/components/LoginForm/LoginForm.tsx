@@ -12,7 +12,6 @@ import {
 } from "./LoginForm.styled.js";
 import hidden from "img/eye-off.svg";
 import view from "img/eye.svg";
-// import { LinearProgress } from "@mui/material";
 
 interface FormElements extends HTMLFormControlsCollection {
   inputName: HTMLInputElement;
@@ -65,12 +64,6 @@ export default function LoginForm() {
 
   return (
     <div>
-      {/* {isLoading ? (
-        <>
-          <LinearProgress color="success" />
-          <LinearProgress />
-        </>
-      ) : null} */}
       <Form onSubmit={handleSubmit}>
         <Input
           value={formState.username}
@@ -99,6 +92,8 @@ export default function LoginForm() {
             name="show"
             onMouseDown={handleClick}
             onMouseUp={onMouseUp}
+            onTouchStart={handleClick}
+            onTouchEnd={onMouseUp}
           >
             <img src={show ? view : hidden} alt="button isHidden password" />
           </ButtonEye>
