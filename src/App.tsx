@@ -1,7 +1,6 @@
 import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
-import { Oval } from "react-loader-spinner";
-// import { Container } from "./App.styled";
+import { LinearProgress } from "@mui/material";
 import Layout from "components/Layout";
 
 import {
@@ -11,7 +10,6 @@ import {
 
 const HomePage = lazy(() => import("views/HomePage"));
 const LogInPage = lazy(() => import("views/LogInPage"));
-
 const NewsPage = lazy(() => import("views/NewsPage"));
 const ProfilePage = lazy(() => import("views/ProfilePage"));
 const NotFoundPage = lazy(() => import("views/NotFound"));
@@ -19,7 +17,14 @@ const NotFoundPage = lazy(() => import("views/NotFound"));
 export default function App() {
   return (
     <div>
-      <Suspense fallback={<Oval />}>
+      <Suspense
+        fallback={
+          <>
+            <LinearProgress color="success" />
+            <LinearProgress />
+          </>
+        }
+      >
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />

@@ -8,7 +8,7 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-import { persistedReducer } from "redux/user/authSlice";
+import { persistedReducer, rtkQueryErrorLogger } from "redux/user/authSlice";
 import { userApi } from "redux/user/userApi";
 import { newsApi } from "redux/newsAPI";
 
@@ -25,8 +25,8 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
-
     newsApi.middleware,
+    rtkQueryErrorLogger,
     userApi.middleware,
   ],
 });

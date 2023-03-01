@@ -2,8 +2,7 @@ interface ISection {
   title?: string;
   children: React.ReactNode;
 }
-// children?: React.ReactNode;
-// children?.: JSX.Element;
+
 function Section({ title, children }: ISection) {
   return (
     <div>

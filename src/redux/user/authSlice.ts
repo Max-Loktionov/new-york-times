@@ -1,21 +1,15 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, isRejectedWithValue } from "@reduxjs/toolkit";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { userApi } from "./userApi";
 import type { RootState } from "redux/store";
-import type { PayloadAction } from "@reduxjs/toolkit";
-
-export interface IUser {
-  name: string | null;
-  email: string | null;
-  password: string | null;
-}
-
-interface IState {
-  user: IUser;
-  token: string | null;
-  isLoggedIn: boolean;
-}
+import { IUser, IState } from "helpers/interfaces";
+import type {
+  MiddlewareAPI,
+  Middleware,
+  PayloadAction,
+} from "@reduxjs/toolkit";
+import { Notify } from "notiflix/build/notiflix-notify-aio";
 
 const initialState = {
   user: {
@@ -50,11 +44,9 @@ export const authSlice = createSlice({
       .addMatcher(
         userApi.endpoints.logOutUser.matchFulfilled,
         (state: IState) => {
-          state.token = null;
-          state.user.name = null;
-          state.user.email = null;
-          state.user.password = null;
+          state.user = initialState.user;
           state.isLoggedIn = false;
+          state.token = null;
         }
       )
       .addMatcher(
@@ -67,6 +59,25 @@ export const authSlice = createSlice({
   },
 });
 
+/**
+ * Log a warning and show a notification!
+ */
+export const rtkQueryErrorLogger: Middleware =
+  (api: MiddlewareAPI) => (next) => (action) => {
+    if (isRejectedWithValue(action)) {
+      if (!api) return;
+      return Notify.failure(
+        ` ${action.error.message} - wrong email or password`,
+        {
+          timeout: 6000,
+          fontSize: "18px",
+        }
+      );
+    }
+
+    return next(action);
+  };
+
 const persistConfig = {
   key: "token",
   storage,
@@ -78,6 +89,5 @@ export const persistedReducer = persistReducer(
   authSlice.reducer
 );
 
-// export const { logInUser, logOutUser, getUser } = authSlice.actions;
 export const selectCurrentUser = (state: RootState) => state?.auth?.user;
 export default authSlice.reducer;

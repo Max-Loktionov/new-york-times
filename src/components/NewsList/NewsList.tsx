@@ -1,13 +1,8 @@
 import { useTranslation } from "react-i18next";
 import NewsItem from "components/NewsItem";
-import { INews } from "redux/newsAPI";
+import { INewsProps } from "helpers/interfaces";
 import { Grid } from "@mui/material";
 import { Button } from "components/LoginForm/LoginForm.styled";
-
-interface INewsProps {
-  posts: INews[];
-  onDelete: (id: string) => void;
-}
 
 const NewsList = ({ posts, onDelete }: INewsProps) => {
   const { t } = useTranslation();

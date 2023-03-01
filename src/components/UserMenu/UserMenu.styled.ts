@@ -31,6 +31,7 @@ export const Ava = styled.img`
   border-radius: 50%;
 `;
 export const Name = styled.span`
+  padding-left: 12px;
   font-weight: 700;
   font-style: italic;
 `;

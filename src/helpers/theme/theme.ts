@@ -9,10 +9,7 @@ const theme = createTheme({
     secondary: {
       main: "#00e5ff",
     },
-    // error: {
-    //   main: red.A400,
-    // },
   },
 });
-//color: cyan[A400]
+
 export default theme;

@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import type { RootState } from "redux/store";
 import { useTranslation } from "react-i18next";
-
 import { NAVLink } from "components/AppBar/AppBar.styled";
 
 const Navigation = () => {

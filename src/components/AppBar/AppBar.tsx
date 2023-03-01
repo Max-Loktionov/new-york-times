@@ -1,15 +1,14 @@
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import type { RootState } from "redux/store";
-
 import Navigation from "components/Navigation";
 import UserMenu from "components/UserMenu";
 import UserReg from "components/UserReg";
-import { Button, Box } from "@mui/material";
-import { Container, Header, ButtonLan } from "./AppBar.styled";
+import { Button, Box, ButtonGroup } from "@mui/material";
+import { Container, Header } from "./AppBar.styled";
 
 export default function MenuAppBar() {
-  const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
+  const { isLoggedIn } = useSelector((state: RootState) => state.auth);
   const { i18n } = useTranslation();
 
   const changeLanguage = (lng: string) => {
@@ -22,14 +21,14 @@ export default function MenuAppBar() {
         <Box component="div" sx={{ p: 2, display: "flex" }}>
           {isLoggedIn ? <UserMenu /> : <UserReg />}
 
-          <ButtonLan variant="text" aria-label="text button group">
+          <ButtonGroup variant="text" aria-label="text button group">
             <Button color="secondary" onClick={() => changeLanguage("ua")}>
               ua
             </Button>
             <Button color="secondary" onClick={() => changeLanguage("en")}>
               en
             </Button>
-          </ButtonLan>
+          </ButtonGroup>
         </Box>
       </Header>
     </Container>

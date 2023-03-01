@@ -3,6 +3,9 @@ import styled from "@emotion/styled";
 export const Form = styled.form`
   display: grid;
   grid-gap: 36px;
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
   background-color: #6c696ca1;
   border: none;
   border-radius: calc(0.5 * 44px);

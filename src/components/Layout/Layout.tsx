@@ -15,7 +15,7 @@ const Layout = () => {
   return (
     <>
       <AppBar />
-      <Box sx={{ my: 12, mx: "auto", p: 2, maxWidth: "md" }}>
+      <Box sx={{ my: 12, mx: "auto", p: 2, maxWidth: "lg" }}>
         <Outlet />
       </Box>
     </>

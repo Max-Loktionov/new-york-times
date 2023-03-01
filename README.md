@@ -1,4 +1,4 @@
-# Job Api - test task
+# New York Times - test task
 
 ## Available Scripts
 
@@ -20,14 +20,12 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
 ### Dependencies:
 
 ---
 
-| @heroicons/react | axios | react | react-dom | react-paginate | react-scripts | react-spinners | typescript |
-| ---------------- | ----- | ----- | --------- | -------------- | ------------- | -------------- | ---------- |
+| @reduxjs/toolkit | @mui/material | i18next | react | react-dom | react-redux | react-scripts | redux-persist | typescript |
+| ---------------- | ------------- | ------- | ----- | --------- | ----------- | ------------- | ------------- | ---------- |
 
 ---
 
@@ -35,9 +33,16 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ---
 
-**Use api on routes: `/` and `/:id `**
+**Use api on routes: **
 
-- `/` you can see start page with list of actual jobs;
-- `/:id` click on job if you need to read detail information about choosen job.
+- `/` you can see start page with actual date;
+- `/news` click on News if you need to read the news;
+- `/profile` profile settings; (private route, is required auth)
 
-if you need to change settings of pagination, you can find limit of items per page in the pages/JobBoard AMOUNT_OF_ITEMS (by default = 3)
+if you need to change settings of items to showing in the News, you can find limit of items per page (ITEMS_PER_PAGE = 10) in the views/NewsPage (by default = 10)
+
+at this time only the correct data for authentication
+
+### name: admin
+
+### password: 12345

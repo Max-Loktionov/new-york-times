@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Notify } from "notiflix/build/notiflix-notify-aio";
+// import { Oval } from "react-loader-spinner";
 import { useLogInUserMutation } from "redux/user/userApi";
 import { useTranslation } from "react-i18next";
-
+import { ILogin } from "helpers/interfaces";
 import {
   Form,
   Input,
@@ -12,16 +13,13 @@ import {
 } from "./LoginForm.styled.js";
 import hidden from "img/eye-off.svg";
 import view from "img/eye.svg";
+import { LinearProgress } from "@mui/material";
 
 interface FormElements extends HTMLFormControlsCollection {
   inputName: HTMLInputElement;
 }
 interface IFormElement extends HTMLFormElement {
   readonly elements: FormElements;
-}
-export interface ILogin {
-  username: string;
-  password: string;
 }
 
 export default function LoginForm() {
@@ -32,13 +30,11 @@ export default function LoginForm() {
 
   const fake = { username: "admin", password: "12345" };
 
-  // const [name, setName] = useState<string | undefined>("");
-  // const [password, setPassword] = useState<string | undefined>("");
   const [formState, setFormState] = useState<ILogin>({
     username: "",
     password: "",
   });
-  const [logInUser] = useLogInUserMutation();
+  const [logInUser, { isLoading }] = useLogInUserMutation();
 
   const handleSubmit = async (e: React.FormEvent<IFormElement>) => {
     e.preventDefault();
@@ -49,16 +45,6 @@ export default function LoginForm() {
           password: `${formState.password}6A`,
           email: "antey@man.co",
         });
-        //   .then((resp) => {
-        //   // resp?.error &&
-        //   //   Notify.failure(
-        //   //     `Error ${resp.error.status} - wrong email or password`,
-        //   //     {
-        //   //       timeout: 5000,
-        //   //       fontSize: "18px",
-        //   //     }
-        //   //   );
-        // });
       } else {
         Notify.failure(`Error  - wrong name or password`, {
           timeout: 5000,
@@ -77,16 +63,19 @@ export default function LoginForm() {
 
   return (
     <div>
+      {isLoading ? (
+        <>
+          <LinearProgress color="success" />
+          <LinearProgress />
+        </>
+      ) : null}
       <Form onSubmit={handleSubmit}>
         <Input
           value={formState.username}
-          // onChange={(e: React.FormEvent<HTMLInputElement>): void =>
-          //   setName(e.target.value)
-          // }
           onChange={handleChange}
           type="text"
           name="username"
-          // placeholder={t("login.name")}
+          placeholder="name"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           autoComplete="off"
@@ -97,11 +86,8 @@ export default function LoginForm() {
             type={show ? "text" : "password"}
             value={formState.password}
             name="password"
-            // onChange={(e: React.FormEvent<HTMLInputElement>): void =>
-            //   setPassword(e.target.value)
-            // }
             onChange={handleChange}
-            // placeholder={t("login.password")}
+            placeholder="password"
             autoComplete="off"
             required
           />

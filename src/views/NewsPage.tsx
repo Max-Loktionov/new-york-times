@@ -1,15 +1,11 @@
 import { useState, useEffect } from "react";
-
-// import { Notify } from "notiflix/build/notiflix-notify-aio";
-import { Oval } from "react-loader-spinner";
+import { LinearProgress } from "@mui/material";
 import { useTranslation } from "react-i18next";
-
 import Section from "components/Section";
 import { useGetNewsQuery } from "redux/newsAPI";
 import NewsList from "components/NewsList";
-import { INews } from "redux/newsAPI";
-
-import { Typography, Button } from "@mui/material";
+import { INews } from "helpers/interfaces";
+import { Typography, Button, Paper } from "@mui/material";
 
 const NewsPage = () => {
   const ITEMS_PER_PAGE = 10; // Number of items to show per page
@@ -55,20 +51,19 @@ const NewsPage = () => {
   return (
     <>
       <Section>
-        <Typography variant="h3" fontStyle="italic">
-          {t("news.date", { date: new Date() })}
-        </Typography>
+        <Paper elevation={2}>
+          <Typography variant="h3" fontStyle="italic">
+            {t("news.date", { date: new Date() })}
+          </Typography>
+        </Paper>
       </Section>
       <Section>
-        {isLoading && (
-          <Oval
-            ariaLabel="loading-indicator"
-            strokeWidth={10}
-            strokeWidthSecondary={10}
-            color="orange"
-            secondaryColor="yellow"
-          />
-        )}
+        {isLoading ? (
+          <>
+            <LinearProgress color="success" />
+            <LinearProgress />
+          </>
+        ) : null}
         <NewsList posts={itemsToShow} onDelete={deleteOnePostById} />
 
         {allItems.length > ITEMS_PER_PAGE && (

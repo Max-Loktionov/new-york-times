@@ -1,5 +1,5 @@
 import noImage from "img/no-image-icon-23485.png";
-import { INews } from "redux/newsAPI";
+import { INews } from "helpers/interfaces";
 import { Grid, Typography } from "@mui/material";
 
 const NewsItem = ({ title, body, id }: INews) => {
@@ -17,7 +17,7 @@ const NewsItem = ({ title, body, id }: INews) => {
         <Grid item>
           <img src={noImage} alt={title} width="150" height="150" />
         </Grid>
-        <Grid item xs>
+        <Grid item xs={6} md={10}>
           <Typography>{body}</Typography>
         </Grid>
       </Grid>
