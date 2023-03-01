@@ -15,7 +15,7 @@
     "news": {
         "title": "Today News",
         "more": "Show more",
-        "date": "News of the {{date,DATE_HUGE}}",
+        "date": "Today is {{date,DATE_HUGE}}",
         "del": "Delete"
     },
     "login": {

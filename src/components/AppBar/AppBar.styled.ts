@@ -3,7 +3,11 @@ import { NavLink } from "react-router-dom";
 import { ButtonGroup } from "@mui/material";
 
 export const Container = styled.div`
-  margin: 0 auto;
+  position: fixed;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, 0);
+  width: 100%;
   padding: 0 16px;
 `;
 
@@ -15,7 +19,7 @@ export const Header = styled.div`
   margin-bottom: 16px;
   border-radius: 4px;
   background-color: #6c696c7a;
-  color: #01b7ee;
+  color: #00e5ff;
   box-shadow: rgb(6 24 44 / 40%) -1px 2px 0px -1px,
     rgb(6 24 44 / 65%) 0px 1px 2px -1px, rgb(255 255 255 / 8%) 0px 1px 0px inset;
 `;
@@ -25,7 +29,7 @@ export const NAVLink = styled(NavLink)`
   margin: 20px;
   border-radius: 4px;
   text-decoration: none;
-  color: #01b7ee;
+  color: #00e5ff;
   font-weight: 700;
   font-size: 24px;
 

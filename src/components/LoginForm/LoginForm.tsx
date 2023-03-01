@@ -86,7 +86,7 @@ export default function LoginForm() {
           onChange={handleChange}
           type="text"
           name="username"
-          placeholder={t("login.name")}
+          // placeholder={t("login.name")}
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           autoComplete="off"
@@ -101,7 +101,7 @@ export default function LoginForm() {
             //   setPassword(e.target.value)
             // }
             onChange={handleChange}
-            placeholder={t("login.password")}
+            // placeholder={t("login.password")}
             autoComplete="off"
             required
           />

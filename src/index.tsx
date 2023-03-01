@@ -7,6 +7,8 @@ import { store, persistor } from "./redux/store";
 import "./index.css";
 import App from "./App";
 import "./i18n";
+import { ThemeProvider } from "@mui/material/styles";
+import theme from "./helpers/theme/theme";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(
@@ -16,9 +18,11 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <BrowserRouter basename="/new-york-times">
-          <App />
-        </BrowserRouter>
+        <ThemeProvider theme={theme}>
+          <BrowserRouter basename="/new-york-times">
+            <App />
+          </BrowserRouter>
+        </ThemeProvider>
       </PersistGate>
     </Provider>
   </React.StrictMode>

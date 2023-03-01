@@ -19,15 +19,16 @@ export default function MenuAppBar() {
     <Container>
       <Header>
         <Navigation />
-        <Box
-          component="div"
-          sx={{ p: 2, display: "flex", border: "1px dashed grey" }}
-        >
+        <Box component="div" sx={{ p: 2, display: "flex" }}>
           {isLoggedIn ? <UserMenu /> : <UserReg />}
 
           <ButtonLan variant="text" aria-label="text button group">
-            <Button onClick={() => changeLanguage("ua")}>ua</Button>
-            <Button onClick={() => changeLanguage("en")}>en</Button>
+            <Button color="secondary" onClick={() => changeLanguage("ua")}>
+              ua
+            </Button>
+            <Button color="secondary" onClick={() => changeLanguage("en")}>
+              en
+            </Button>
           </ButtonLan>
         </Box>
       </Header>

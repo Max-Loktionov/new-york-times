@@ -9,6 +9,8 @@ import { useGetNewsQuery } from "redux/newsAPI";
 import NewsList from "components/NewsList";
 import { INews } from "redux/newsAPI";
 
+import { Typography, Button } from "@mui/material";
+
 const NewsPage = () => {
   const ITEMS_PER_PAGE = 10; // Number of items to show per page
   const { t } = useTranslation();
@@ -52,7 +54,11 @@ const NewsPage = () => {
 
   return (
     <>
-      <Section>{t("news.date", { date: new Date() })}</Section>
+      <Section>
+        <Typography variant="h3" fontStyle="italic">
+          {t("news.date", { date: new Date() })}
+        </Typography>
+      </Section>
       <Section>
         {isLoading && (
           <Oval
@@ -66,12 +72,14 @@ const NewsPage = () => {
         <NewsList posts={itemsToShow} onDelete={deleteOnePostById} />
 
         {allItems.length > ITEMS_PER_PAGE && (
-          <button
+          <Button
+            variant="contained"
+            color="secondary"
             onClick={loadMoreBtn}
             disabled={Boolean(endIndex >= allItems?.length)}
           >
             {t("news.more")}
-          </button>
+          </Button>
         )}
       </Section>
     </>

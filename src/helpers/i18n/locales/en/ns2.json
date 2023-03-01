@@ -15,7 +15,7 @@
     "news": {
         "title": "Свіжі Новини",
         "more": "Показати більше",
-        "date": "Новини у {{date,DATE_HUGE}}",
+        "date": "Сьогодні {{date,DATE_HUGE}}",
         "del": "Видалити"
     },
     "login": {

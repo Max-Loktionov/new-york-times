@@ -3,7 +3,7 @@ import AppBar from "components/AppBar/AppBar";
 import { useGetUserQuery } from "redux/user/userApi";
 import { useSelector } from "react-redux";
 import type { RootState } from "redux/store";
-import { Container } from "@mui/material";
+import { Box } from "@mui/material";
 
 const Layout = () => {
   const { token } = useSelector((state: RootState) => state.auth);
@@ -15,9 +15,9 @@ const Layout = () => {
   return (
     <>
       <AppBar />
-      <Container maxWidth="md">
+      <Box sx={{ my: 12, mx: "auto", p: 2, maxWidth: "md" }}>
         <Outlet />
-      </Container>
+      </Box>
     </>
   );
 };
