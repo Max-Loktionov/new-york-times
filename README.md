@@ -1,7 +1,5 @@
-# New York Times - test task
-
-<div style=" color: black; padding:20px; background-color: #6c696c7a">
-<h1 style="text-align: center;  color: #00e5ff ">New York Times</h1>
+<div style="  padding:20px;">
+<h1 style="text-align: center;  ">New York Times</h1>
 <h2>...time waits for no one</h2>
 
 ![](src/img/watch.jpeg)
@@ -47,16 +45,18 @@ Your app is ready to be deployed!
 
 ---
 
-**Use api on routes: **
+- Use api on routes:
 
-- `/` you can see start page with actual date;
-- `/news` click on News if you need to read the news;
-- `/profile` profile settings; (private route, is required auth)
+* `/` you can see start page with actual date;
+* `/news` click on News if you need to read the news;
+* `/profile` profile settings; (private route, is required auth)
 
-if you need to change settings of items to showing in the News, you can find limit of items per page (ITEMS_PER_PAGE = 10) in the views/NewsPage (by default = 10)
+## if you need to change settings of items to showing in the News, you can find limit of items per page (ITEMS_PER_PAGE = 10) in the views/NewsPage (by default = 10)
 
-at this time only the correct data for authentication
+# at this time only the correct data for authentication
 
-### name: admin
+## name: admin
 
-### password: 12345
+## password: 12345
+
+---
