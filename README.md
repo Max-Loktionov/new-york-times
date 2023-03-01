@@ -1,5 +1,13 @@
 # New York Times - test task
 
+<div style=" color: black; padding:20px; background-color: #6c696c7a">
+<h1 style="text-align: center;  color: #00e5ff ">New York Times</h1>
+<h2>...time waits for no one</h2>
+
+![](src/img/watch.jpeg)
+
+</div>
+
 Make sure you have an LTS version of Node.js installed on your computer. Download and install if it is necessary.
 Clone this repo.
 Install the basic project dependencies with the command npm install.
