@@ -1,7 +1,13 @@
 # New York Times - test task
 
+Make sure you have an LTS version of Node.js installed on your computer. Download and install if it is necessary.
+Clone this repo.
+Install the basic project dependencies with the command npm install.
+Start development mode by running the command npm start.
+
 ## Available Scripts
 
+``
 In the project directory, you can run:
 
 ### `npm start`
