@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
-import { selectCurrentUser } from "redux/user/authSlice";
 import { useTranslation } from "react-i18next";
+import { selectCurrentUser } from "redux/user/authSlice";
 import { useLogOutUserMutation } from "redux/user/userApi";
 import defaultAva from "img/ava.png";
 import { Button } from "components/LoginForm/LoginForm.styled";

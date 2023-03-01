@@ -67,7 +67,7 @@ export const rtkQueryErrorLogger: Middleware =
     if (isRejectedWithValue(action)) {
       if (!api) return;
       return Notify.failure(
-        ` ${action.error.message} - wrong email or password`,
+        ` ${action.error.message} - error in async action`,
         {
           timeout: 6000,
           fontSize: "18px",

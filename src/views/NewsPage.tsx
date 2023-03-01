@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { LinearProgress } from "@mui/material";
 import { useTranslation } from "react-i18next";
+import { LinearProgress } from "@mui/material";
 import Section from "components/Section";
 import { useGetNewsQuery } from "redux/newsAPI";
 import NewsList from "components/NewsList";
@@ -9,8 +9,8 @@ import { Typography, Button, Paper } from "@mui/material";
 
 const NewsPage = () => {
   const ITEMS_PER_PAGE = 10; // Number of items to show per page
-  const { t } = useTranslation();
   const { data: posts, isLoading } = useGetNewsQuery(); // fetch data from mockAPI posts
+  const { t } = useTranslation();
 
   const [itemsPerPage] = useState(ITEMS_PER_PAGE);
   const [currentPage, setCurrentPage] = useState(1);

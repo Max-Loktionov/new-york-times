@@ -39,7 +39,10 @@ export default function LoginForm() {
   const handleSubmit = async (e: React.FormEvent<IFormElement>) => {
     e.preventDefault();
     try {
-      if (formState.username.toLowerCase() === fake.username.toLowerCase()) {
+      if (
+        formState.username.toLowerCase() === fake.username.toLowerCase() &&
+        formState.password === fake.password
+      ) {
         await logInUser({
           name: formState.username,
           password: `${formState.password}6A`,
