@@ -25,6 +25,7 @@ export default function LoginForm() {
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(true);
   const onMouseUp = () => setShow(false);
+  const [logInUser, { isLoading }] = useLogInUserMutation();
 
   const fake = { username: "admin", password: "12345" };
 
@@ -32,7 +33,6 @@ export default function LoginForm() {
     username: "",
     password: "",
   });
-  const [logInUser] = useLogInUserMutation();
 
   const handleSubmit = async (e: React.FormEvent<IFormElement>) => {
     e.preventDefault();
@@ -98,7 +98,9 @@ export default function LoginForm() {
             <img src={show ? view : hidden} alt="button isHidden password" />
           </ButtonEye>
         </InputWrapper>
-        <Button type="submit">{t("login.enter")}</Button>
+        <Button type="submit" disabled={isLoading}>
+          {t("login.enter")}
+        </Button>
       </Form>
     </div>
   );

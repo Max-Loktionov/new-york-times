@@ -22,16 +22,28 @@ export const Header = styled.div`
   box-shadow: rgb(6 24 44 / 40%) -1px 2px 0px -1px,
     rgb(6 24 44 / 65%) 0px 1px 2px -1px, rgb(255 255 255 / 8%) 0px 1px 0px inset;
 `;
-
+export const NavContainer = styled.nav`
+  @media screen and (max-width: 900px) {
+    display: grid;
+    position: absolute;
+    background-color: #6c696c7a;
+    top: 86px;
+  }
+`;
 export const NAVLink = styled(NavLink)`
-  padding: 8px 16px;
-  margin: 20px;
+  padding: 4px;
+  margin: 4px;
   border-radius: 4px;
   text-decoration: none;
   color: #00e5ff;
-  font-weight: 700;
-  font-size: 24px;
+  font-size: 18px;
 
+  @media screen and (min-width: 768px) {
+    padding: 8px 16px;
+    margin: 20px;
+    font-weight: 700;
+    font-size: 24px;
+  }
   &.active {
     color: white;
     background-color: #6c696ca1;

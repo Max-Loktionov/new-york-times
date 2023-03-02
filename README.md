@@ -58,8 +58,8 @@ the site is available in English and Ukrainian
 
 ##### at this time only the correct data for authentication
 
-#### name: admin
+### |name:| admin|
 
-#### password: 12345
+### |password:| 12345|
 
 ---

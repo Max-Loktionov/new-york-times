@@ -4,7 +4,7 @@ import { selectCurrentUser } from "redux/user/authSlice";
 import { useLogOutUserMutation } from "redux/user/userApi";
 import defaultAva from "img/ava.png";
 import { Button } from "components/LoginForm/LoginForm.styled";
-import { Box, Ava, Name } from "./UserMenu.styled";
+import { Box, Ava, Name, BoxGreet } from "./UserMenu.styled";
 
 export default function UserMenu() {
   const [logOutUser] = useLogOutUserMutation();
@@ -14,9 +14,9 @@ export default function UserMenu() {
   return (
     <Box>
       <Ava src={avatar} alt="" width="32" />
-      <Box>
+      <BoxGreet>
         {t("login.greet")} , <Name> {name}</Name>
-      </Box>
+      </BoxGreet>
       <Button type="button" onClick={logOutUser}>
         {t("login.exit")}
       </Button>

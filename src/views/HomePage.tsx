@@ -9,16 +9,28 @@ export default function Home() {
     <Grid container direction="column">
       <Grid item>
         <Typography
-          variant="h2"
           component="h1"
           color="secondary"
-          sx={{ my: 4, p: 2, textAlign: "center" }}
+          sx={{
+            my: 4,
+            p: 2,
+            textAlign: "center",
+            fontSize: { xs: 24, md: 40 },
+          }}
         >
           {t("home.head")}
         </Typography>
       </Grid>
       <Grid item>
-        <Typography variant="h4" p={2}>
+        <Typography
+          variant="h4"
+          sx={{
+            my: 4,
+            p: 2,
+            textAlign: "center",
+            fontSize: { xs: 24, md: 32 },
+          }}
+        >
           {t("home.title")}
         </Typography>
       </Grid>
@@ -33,10 +45,15 @@ export default function Home() {
         </Card>
       </Grid>
       <Grid item fontStyle="italic" p={2}>
-        <Typography variant="h3" pl={2}>
+        <Typography
+          variant="h3"
+          py={2}
+          pl={2}
+          sx={{ fontSize: { xs: 24, md: 36 } }}
+        >
           {t("home.description.part1")}
         </Typography>
-        <Typography variant="h3" pl={4}>
+        <Typography variant="h3" pl={4} sx={{ fontSize: { xs: 24, md: 36 } }}>
           {t("home.description.part2")}
         </Typography>
       </Grid>

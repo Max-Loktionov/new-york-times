@@ -24,6 +24,15 @@ export const Box = styled.div`
   margin-right: 24px;
 `;
 
+export const BoxGreet = styled.div`
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    margin-right: 24px;
+  }
+`;
+
 export const Ava = styled.img`
   display: flex;
   align-items: center;

@@ -19,11 +19,15 @@ export const Form = styled.form`
 export const Input = styled.input`
   background-color: white;
   border: none;
-  border-radius: calc(0.5 * 44px);
+  border-radius: 20px;
   height: 100%;
   outline: none;
-  padding: 4px 44px 4px 16px;
-  font-size: 24px;
+  padding: 4px 4px 4px 16px;
+  font-size: 18px;
+  @media screen and (min-width: 768px) {
+    padding: 4px 4px 4px 16px;
+    font-size: 24px;
+  }
 `;
 
 export const ButtonEye = styled.button`
@@ -48,8 +52,7 @@ export const InputWrapper = styled.div`
 
 export const Button = styled.button`
   margin-left: auto;
-  margin-right: 24px;
-  padding: 8px;
+  padding: 4px;
   border-radius: 10px;
   cursor: pointer;
   background-color: #000000;
@@ -63,5 +66,10 @@ export const Button = styled.button`
     color: grey;
     opacity: 0.7;
     cursor: default;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-right: 24px;
+    padding: 8px;
   }
 `;
