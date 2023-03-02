@@ -18,7 +18,7 @@ jobs:
           npm run build
         env:
           REACT_APP_API_URL: ${{secrets.REACT_APP_API_URL}}
-          REACT_APP_BASE_URL1: ${{secrets.REACT_APP_BASE_URL1}}
+          REACT_APP_FAKE_URL: ${{secrets.REACT_APP_FAKE_URL}} >> .env
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:

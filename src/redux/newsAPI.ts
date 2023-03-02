@@ -1,8 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { INews } from "helpers/interfaces";
 
-const { REACT_APP_BASE_URL1 } = process.env;
-const BASE_URL = `${REACT_APP_BASE_URL1}`;
+const { REACT_APP_FAKE_URL } = process.env;
+const BASE_URL = `${REACT_APP_FAKE_URL}`;
 
 export const newsApi = createApi({
   reducerPath: "newsApi",

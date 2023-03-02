@@ -54,6 +54,8 @@ Your app is ready to be deployed!
 
 if you need to change settings of items to showing in the News, you can find limit of items per page (ITEMS_PER_PAGE = 10) in the views/NewsPage (by default = 10)
 
+the site is available in English and Ukrainian
+
 ##### at this time only the correct data for authentication
 
 #### name: admin
