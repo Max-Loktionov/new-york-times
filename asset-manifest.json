@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/new-york-times/static/css/main.b317377e.css",
-    "main.js": "/new-york-times/static/js/main.79b7aa7f.js",
+    "main.js": "/new-york-times/static/js/main.c4359332.js",
     "static/js/505.46548596.chunk.js": "/new-york-times/static/js/505.46548596.chunk.js",
     "static/js/389.eb524230.chunk.js": "/new-york-times/static/js/389.eb524230.chunk.js",
-    "static/js/577.1a5779db.chunk.js": "/new-york-times/static/js/577.1a5779db.chunk.js",
+    "static/js/577.0f21b0d2.chunk.js": "/new-york-times/static/js/577.0f21b0d2.chunk.js",
     "static/js/782.be037139.chunk.js": "/new-york-times/static/js/782.be037139.chunk.js",
     "static/js/710.07ef6742.chunk.js": "/new-york-times/static/js/710.07ef6742.chunk.js",
     "static/js/787.fc3f6be1.chunk.js": "/new-york-times/static/js/787.fc3f6be1.chunk.js",
@@ -16,10 +16,10 @@
     "static/media/eye-off.svg": "/new-york-times/static/media/eye-off.e5a32984f0d3123dccd116a852867930.svg",
     "static/media/eye.svg": "/new-york-times/static/media/eye.dd0d0ce95c0a4e0bd8b1169e000e1dda.svg",
     "main.b317377e.css.map": "/new-york-times/static/css/main.b317377e.css.map",
-    "main.79b7aa7f.js.map": "/new-york-times/static/js/main.79b7aa7f.js.map",
+    "main.c4359332.js.map": "/new-york-times/static/js/main.c4359332.js.map",
     "505.46548596.chunk.js.map": "/new-york-times/static/js/505.46548596.chunk.js.map",
     "389.eb524230.chunk.js.map": "/new-york-times/static/js/389.eb524230.chunk.js.map",
-    "577.1a5779db.chunk.js.map": "/new-york-times/static/js/577.1a5779db.chunk.js.map",
+    "577.0f21b0d2.chunk.js.map": "/new-york-times/static/js/577.0f21b0d2.chunk.js.map",
     "782.be037139.chunk.js.map": "/new-york-times/static/js/782.be037139.chunk.js.map",
     "710.07ef6742.chunk.js.map": "/new-york-times/static/js/710.07ef6742.chunk.js.map",
     "787.fc3f6be1.chunk.js.map": "/new-york-times/static/js/787.fc3f6be1.chunk.js.map",
@@ -27,6 +27,6 @@
   },
   "entrypoints": [
     "static/css/main.b317377e.css",
-    "static/js/main.79b7aa7f.js"
+    "static/js/main.c4359332.js"
   ]
 }
