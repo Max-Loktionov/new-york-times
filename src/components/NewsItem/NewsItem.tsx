@@ -13,11 +13,15 @@ const NewsItem = ({ title, body, id }: INews) => {
           ==={id}===
         </Typography>
       </Grid>
-      <Grid item container m={2} spacing={2}>
-        <Grid item>
+      <Grid
+        item
+        m={2}
+        sx={{ flexGrow: 1, display: { xs: "block", md: "flex" } }}
+      >
+        <Grid item m={2}>
           <img src={noImage} alt={title} width="150" height="150" />
         </Grid>
-        <Grid item xs={6} md={10}>
+        <Grid item p={2}>
           <Typography>{body}</Typography>
         </Grid>
       </Grid>

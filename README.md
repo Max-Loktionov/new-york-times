@@ -1,5 +1,5 @@
 <div style="  padding:20px;">
- <h1 style="text-align: center;  ">New York Times</h1>
+ <h1 >New York Times
 <h2>...time waits for no one</h2>
 
 ![](src/img/watch.jpeg)
@@ -58,8 +58,9 @@ the site is available in English and Ukrainian
 
 ##### at this time only the correct data for authentication
 
-### |name:| admin|
-
-### |password:| 12345|
+| name:     | admin  |
+| --------- | ------ |
+| password: | 12345  |
+| --------- | ------ |
 
 ---

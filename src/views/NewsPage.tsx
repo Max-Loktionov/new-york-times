@@ -52,11 +52,7 @@ const NewsPage = () => {
     <>
       <Section>
         <Paper elevation={2}>
-          <Typography
-            variant="h3"
-            // sx={{ fontSize: { xs: 24, md: 40 } }}
-            fontStyle="italic"
-          >
+          <Typography variant="h4" fontStyle="italic">
             {t("news.date", { date: new Date() })}
           </Typography>
         </Paper>
