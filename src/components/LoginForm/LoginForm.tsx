@@ -26,7 +26,7 @@ export default function LoginForm() {
   const handleClick = () => setShow(true);
   const onMouseUp = () => setShow(false);
   const [logInUser, { isLoading }] = useLogInUserMutation();
-
+  console.log("isLoading", isLoading);
   const fake = { username: "admin", password: "12345" };
 
   const [formState, setFormState] = useState<ILogin>({
@@ -38,14 +38,21 @@ export default function LoginForm() {
     e.preventDefault();
     try {
       if (
-        formState.username.toLowerCase() === fake.username.toLowerCase() &&
-        formState.password === fake.password
+        formState.username.toLowerCase() === fake.username.toLowerCase()
+        // formState.password === fake.password
       ) {
-        await logInUser({
+        const loginData = await logInUser({
           name: formState.username,
           password: `${formState.password}6A`,
           email: "antey@man.co",
         });
+
+        if ("error" in loginData) {
+          Notify.failure(`Error  - wrong name or password `, {
+            timeout: 6000,
+            fontSize: "20px",
+          });
+        }
       } else {
         Notify.failure(`Error  - wrong name or password`, {
           timeout: 5000,
